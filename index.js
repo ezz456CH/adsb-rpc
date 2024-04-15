@@ -27,8 +27,8 @@ async function updateweatherdata() {
     current = await weatherdata();
     const now = new Date();
     const nowutcstring = now.toUTCString();
-    let conditiontext = current ? (current.condition.text != null ? current.condition.text : "n/a") : "n/a";
-    let temp_c = current ? (current.temp_c != null ? current.temp_c : "n/a") : "n/a";
+    let conditiontext = current && current.condition && current.condition.text != null ? current.condition.text : "n/a";
+    let temp_c = current && current.temp_c != null ? current.temp_c : "n/a";    
     console.log(`[${nowutcstring}] ${conditiontext} ${temp_c}°C`);
 }
 
