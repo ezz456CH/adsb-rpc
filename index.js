@@ -44,9 +44,9 @@ async function setActivity() {
         current = await weatherdata();
 
         // use thaiteabot image if weather icon is undefied and n/a if data is null
-        let conditionicon = current && current.condition.icon ? `https:${current.condition.icon}` : "https://ezz456ch.xyz/ThaiTeaBot_512px.png";
-        let conditiontext = current ? (current.condition.text != null ? current.condition.text : "n/a") : "n/a";
-        let temp_c = current ? (current.temp_c != null ? current.temp_c : "n/a") : "n/a";
+        let conditionicon = current && current.condition && current.condition.icon ? `https:${current.condition.icon}` : "https://ezz456ch.xyz/ThaiTeaBot_512px.png";
+        let conditiontext = current && current.condition && current.condition.text != null ? current.condition.text : "n/a";
+        let temp_c = current && current.temp_c != null ? current.temp_c : "n/a";
 
         const i = `${conditionicon}`;
         const w = `${conditiontext} ${temp_c}°C`;
