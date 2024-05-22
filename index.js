@@ -1,12 +1,13 @@
 const axios = require('axios');
 const rpc = require('discord-rpc');
+require('dotenv').config(); // load .env file
 
 const stats = 'https://api.ezz456ch.xyz/api/stats';
-const latlong = ""; // lat, long
-const wtapikey = ""; // weatherapi key
+const latlong = process.env.latlong; // lat, long
+const wtapikey = process.env.wtapikey; // weatherapi key
 const wtapi = `https://api.weatherapi.com/v1/current.json?key=${wtapikey}&q=${latlong}&aqi=no`;
 
-const clientId = ""; // application id
+const clientId = process.env.clientId; // application id
 const client = new rpc.Client({ transport: 'ipc' });
 
 // get weather data
@@ -28,7 +29,7 @@ async function updateweatherdata() {
     const now = new Date();
     const nowutcstring = now.toUTCString();
     let conditiontext = current && current.condition && current.condition.text != null ? current.condition.text : "n/a";
-    let temp_c = current && current.temp_c != null ? current.temp_c : "n/a";    
+    let temp_c = current && current.temp_c != null ? current.temp_c : "n/a";
     console.log(`[${nowutcstring}] ${conditiontext} ${temp_c}°C`);
 }
 

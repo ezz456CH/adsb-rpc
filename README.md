@@ -10,17 +10,17 @@ If you want to use this make sure you have Node.js installed
 You can get a Client ID from [Discord Developer Portal](https://discord.com/developers/applications)
 and a WeatherAPI key from [WeatherAPI.com](https://www.weatherapi.com)
 
-## 2. Put the WeatherAPI key and Client ID in index.js and set latitude and longitude
+## 2. Put the WeatherAPI key, Client ID and latitude and longitude in .env(example in .env_example)
 
 it should be like this
 
 ```
-const latlong = "13.6989449, 100.7480903"; // lat, long
-const wtapikey = "0000000000000000000000000000000"; // weatherapi key
-const clientId = "0000000000000000000"; // application id
+latlong="13.6989449, 100.7480903";
+wtapikey="0000000000000000000000000000000";
+clientId="0000000000000000000";
 ```
 
-## 3. Install axios and discord-rpc
+## 3. Install axios and discord-rpc with npm
 
 ```
 npm i
